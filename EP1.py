@@ -114,17 +114,9 @@ while i <= 5:
       tempo_Binaria_Fim = time.time()
       tempo_Binaria = tempo_Binaria_Fim - tempo_Binaria_Inicio
       tempo_Total_I = tempo_Total_I + (tempo_Sequencial - tempo_Binaria)
-
-
-# tempo_total = 0
-# while tempo_total <= tempo_ordenacao:
-#   cont = cont + 1
-#   r = randint(1, n)
-#   t1 = tempo_busca_sequencial
-#   t2 = tempo_busca_binaria
-#   tempo total = tempo_total + (t1 - t2)
-
-
+      tempo_Total_I = tempo_Total_I + (tempo_Sequencial - tempo_Binaria)
+      
+      
     inicioSelecao = time.time()
     resultadoSelecao = vetor[:]
     resultadoSelecao = seleção(resultadoSelecao)
