@@ -67,8 +67,6 @@ def busca_sequencial(v, x):
             return True
     return False
 
-
-
 from random import sample
 from random import randint
 import time
