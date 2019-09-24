@@ -67,6 +67,8 @@ def busca_sequencial(v, x):
             return True
     return False
 
+
+
 from random import sample
 from random import randint
 import time
@@ -112,9 +114,8 @@ while i <= 5:
       tempo_Binaria_Fim = time.time()
       tempo_Binaria = tempo_Binaria_Fim - tempo_Binaria_Inicio
       tempo_Total_I = tempo_Total_I + (tempo_Sequencial - tempo_Binaria)
-      tempo_Total_I = tempo_Total_I + (tempo_Sequencial - tempo_Binaria)
-      
-      
+
+
     inicioSelecao = time.time()
     resultadoSelecao = vetor[:]
     resultadoSelecao = seleção(resultadoSelecao)
@@ -145,7 +146,7 @@ while i <= 5:
 
     cont_M = 0
     tempo_Total_M = 0
-    while tempo_Total_M <= tempoSelecao:
+    while tempo_Total_M <= tempoMergesort:
       cont_M += 1
       r = randint(1, n)
       tempo_Sequencial_Inicio = time.time()
@@ -167,7 +168,7 @@ while i <= 5:
 
     cont_Q = 0
     tempo_Total_Q = 0
-    while tempo_Total_Q <= tempoSelecao:
+    while tempo_Total_Q <= tempoQuicksort:
       cont_Q += 1
       r = randint(1, n)
       tempo_Sequencial_Inicio = time.time()
@@ -189,7 +190,7 @@ while i <= 5:
 
     cont_Sn = 0
     tempo_Total_Sn = 0
-    while tempo_Total_Sn <= tempoSelecao:
+    while tempo_Total_Sn <= tempoSortnativo:
       cont_Sn += 1
       r = randint(1, n)
       tempo_Sequencial_Inicio = time.time()
@@ -201,6 +202,7 @@ while i <= 5:
       tempo_Binaria_Fim = time.time()
       tempo_Binaria = tempo_Binaria_Fim - tempo_Binaria_Inicio
       tempo_Total_Sn = tempo_Total_Sn + (tempo_Sequencial - tempo_Binaria)
+
       
     print(f'|\t{n}\t| {tempoInsercao:.4f}     \t{tempoSelecao:.4f}', end = '')
     print(f'\t{tempoMergesort:.4f}\t{tempoQuicksort:.4f}\t{tempoSortnativo:.4f}\t   |', end = '')
