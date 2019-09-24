@@ -47,7 +47,30 @@ def quicksort(v):
     maiores = [x for x in v if x >  pivô]
     return quicksort(menores) + iguais + quicksort(maiores)
 
+cont = 0
+def busca_binaria(x, v):
+  global cont
+  e = -1
+  d = len(v)
+  while e < d-1:
+    m = (e + d) // 2
+    cont = cont + 1
+    if v[m] < x:
+      e = m
+    else:
+      d = m
+  return d
+
+def busca_sequencial(v, x):
+    for i in range(len(v)):
+        if v[i] == x:
+            return True
+    return False
+
+
+
 from random import sample
+from random import randint
 import time
 
 dash1 = 42 * '-'
@@ -73,16 +96,55 @@ while i <= 5:
 
     inicioInsercao = time.time()
     resultadoInsercao = vetor[:]
-    inserção(resultadoInsercao)
+    resultadoInsercao = inserção(resultadoInsercao)
     fimInsercao = time.time()
     tempoInsercao = fimInsercao - inicioInsercao
 
-    
+    cont_I = 0
+    tempo_Total_I = 0
+    while tempo_Total_I <= tempoInsercao:
+      cont_I += 1
+      r = randint(1, n)
+      tempo_Sequencial_Inicio = time.time()
+      busca_sequencial(vetor, r)
+      tempo_Sequencial_Fim = time.time()
+      tempo_Sequencial = tempo_Sequencial_Fim - tempo_Sequencial_Inicio
+      tempo_Binaria_Inicio = time.time()
+      busca_binaria(r, resultadoInsercao)
+      tempo_Binaria_Fim = time.time()
+      tempo_Binaria = tempo_Binaria_Fim - tempo_Binaria_Inicio
+      tempo_Total_I = tempo_Total_I + (tempo_Sequencial - tempo_Binaria)
+
+
+# tempo_total = 0
+# while tempo_total <= tempo_ordenacao:
+#   cont = cont + 1
+#   r = randint(1, n)
+#   t1 = tempo_busca_sequencial
+#   t2 = tempo_busca_binaria
+#   tempo total = tempo_total + (t1 - t2)
+
+
     inicioSelecao = time.time()
     resultadoSelecao = vetor[:]
     resultadoSelecao = seleção(resultadoSelecao)
     fimSelecao = time.time()
     tempoSelecao = fimSelecao - inicioSelecao
+
+    cont_S = 0
+    tempo_Total_S = 0
+    while tempo_Total_S <= tempoSelecao:
+      cont_S += 1
+      r = randint(1, n)
+      tempo_Sequencial_Inicio = time.time()
+      busca_sequencial(vetor, r)
+      tempo_Sequencial_Fim = time.time()
+      tempo_Sequencial = tempo_Sequencial_Fim - tempo_Sequencial_Inicio
+      tempo_Binaria_Inicio = time.time()
+      busca_binaria(r, resultadoInsercao)
+      tempo_Binaria_Fim = time.time()
+      tempo_Binaria = tempo_Binaria_Fim - tempo_Binaria_Inicio
+      tempo_Total_S = tempo_Total_S + (tempo_Sequencial - tempo_Binaria)
     
 
     inicioMergesort = time.time()
@@ -91,12 +153,42 @@ while i <= 5:
     fimMergesort = time.time()
     tempoMergesort = fimMergesort - inicioMergesort
 
+    cont_M = 0
+    tempo_Total_M = 0
+    while tempo_Total_M <= tempoSelecao:
+      cont_M += 1
+      r = randint(1, n)
+      tempo_Sequencial_Inicio = time.time()
+      busca_sequencial(vetor, r)
+      tempo_Sequencial_Fim = time.time()
+      tempo_Sequencial = tempo_Sequencial_Fim - tempo_Sequencial_Inicio
+      tempo_Binaria_Inicio = time.time()
+      busca_binaria(r, resultadoInsercao)
+      tempo_Binaria_Fim = time.time()
+      tempo_Binaria = tempo_Binaria_Fim - tempo_Binaria_Inicio
+      tempo_Total_M = tempo_Total_M + (tempo_Sequencial - tempo_Binaria)
+
     
     inicioQuicksort = time.time()
     resultadoQuicksort = vetor[:]
     resultadoQuicksort = quicksort(resultadoQuicksort)
     fimQuicksort = time.time()
     tempoQuicksort = fimQuicksort - inicioQuicksort
+
+    cont_Q = 0
+    tempo_Total_Q = 0
+    while tempo_Total_Q <= tempoSelecao:
+      cont_Q += 1
+      r = randint(1, n)
+      tempo_Sequencial_Inicio = time.time()
+      busca_sequencial(vetor, r)
+      tempo_Sequencial_Fim = time.time()
+      tempo_Sequencial = tempo_Sequencial_Fim - tempo_Sequencial_Inicio
+      tempo_Binaria_Inicio = time.time()
+      busca_binaria(r, resultadoInsercao)
+      tempo_Binaria_Fim = time.time()
+      tempo_Binaria = tempo_Binaria_Fim - tempo_Binaria_Inicio
+      tempo_Total_Q = tempo_Total_Q + (tempo_Sequencial - tempo_Binaria)
 
     
     InicioSortnativo = time.time()
@@ -105,8 +197,22 @@ while i <= 5:
     fimSortnativo = time.time()
     tempoSortnativo = fimSortnativo - InicioSortnativo
 
-    placeholder = 0000
+    cont_Sn = 0
+    tempo_Total_Sn = 0
+    while tempo_Total_Sn <= tempoSelecao:
+      cont_Sn += 1
+      r = randint(1, n)
+      tempo_Sequencial_Inicio = time.time()
+      busca_sequencial(vetor, r)
+      tempo_Sequencial_Fim = time.time()
+      tempo_Sequencial = tempo_Sequencial_Fim - tempo_Sequencial_Inicio
+      tempo_Binaria_Inicio = time.time()
+      busca_binaria(r, resultadoInsercao)
+      tempo_Binaria_Fim = time.time()
+      tempo_Binaria = tempo_Binaria_Fim - tempo_Binaria_Inicio
+      tempo_Total_Sn = tempo_Total_Sn + (tempo_Sequencial - tempo_Binaria)
+      
     print(f'|\t{n}\t| {tempoInsercao:.4f}     \t{tempoSelecao:.4f}', end = '')
     print(f'\t{tempoMergesort:.4f}\t{tempoQuicksort:.4f}\t{tempoSortnativo:.4f}\t   |', end = '')
-    print(f' {placeholder}\t\t{placeholder}\t{placeholder}\t{placeholder}\t{placeholder}\t     |')
+    print(f' {cont_I}\t{cont_S}\t{cont_M}\t{cont_Q}\t{cont_Sn}\t     |')
 print('|', dash2,'|')
