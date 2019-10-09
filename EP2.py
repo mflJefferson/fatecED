@@ -30,7 +30,7 @@ def permutações(items):
 #     print (p)
 
 # for p in enumerações(['Jessica', 'Fernanda', 'Pamela', 'Renata']):
-#    print (p)
+#     print (p)
 
 print ('Permutações')
 for p in permutações([1, 2, 3]):
@@ -39,3 +39,6 @@ for p in permutações([1, 2, 3]):
 print ('Enumerações')
 for p in enumerações([1, 2, 3]):
    print (p)
+print("Hello")
+
+
