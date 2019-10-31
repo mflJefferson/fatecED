@@ -14,20 +14,14 @@ ex1 = '''
 
 M = [list(linha) for linha in ex1.split()]
 
-# num_linhas = len(M)
-# num_colunas = len(M[0])
-# for k in range(num_linhas):
-#     for j in range(num_colunas):
-#         print(M[k][j])
+
 
 #Perguntar se tem 1, perguntar se tem gente em cima ou do lado. Se sim significa que já existe uma região
 
 regiões = []
 regiões.append([(0, 1)])
-regiões.append([(1, 0)])
 regiões[0].append((1, 1))
-regiões[0].extend(regiões[1])
-del regiões[1]
+regiões[0].append((1, 0))
 regiões[0].append((1, 2))
 regiões.append([(3, 0)])
 regiões.append([(3, 2)])
